@@ -7,67 +7,34 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     @page { size: A4; margin: 0; }
-
     :root{
       /* Palette sobre (ardoise) */
-      --accent-1:#475569; /* slate 600 */
-      --accent-2:#334155; /* slate 700 */
-      --accent-3:#0f172a; /* slate 900 */
-      --light-1:#e2e8f0; /* slate 200 */
-      --light-2:#f1f5f9; /* slate 100 */
-      --text:#111827;     /* almost black */
-      --muted:#64748b;    /* slate 500 */
-      --bg:#f8fafc;       /* main background */
-      --white:#ffffff;
+      --accent-1:#475569; --accent-2:#334155; --accent-3:#0f172a;
+      --light-1:#e2e8f0; --light-2:#f1f5f9;
+      --text:#111827; --muted:#64748b; --bg:#f8fafc; --white:#ffffff;
     }
-
     *{margin:0;padding:0;box-sizing:border-box}
-    body{
-      font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-      font-size:10pt; line-height:1.55; color:var(--text);
-      background:var(--bg); padding:20px 0;
-    }
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:10pt;line-height:1.55;color:var(--text);background:var(--bg);padding:20px 0;}
     .page-wrapper{max-width:210mm;margin:0 auto;background:var(--white);box-shadow:0 2px 10px rgba(0,0,0,.08)}
-
     /* Language switch */
-    .language-switch{
-      position:fixed; top:20px; right:20px; background:var(--white);
-      padding:6px; border-radius:24px; box-shadow:0 2px 8px rgba(0,0,0,.12);
-      display:flex; gap:4px; z-index:1000
-    }
-    .lang-btn{
-      padding:8px 14px; border:none; background:transparent; color:var(--muted);
-      font-size:10pt; font-weight:700; cursor:pointer; border-radius:18px; transition:.25s
-    }
-    .lang-btn:hover{ background:#eef2f7 }
-    .lang-btn.active{
-      background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
-      color:var(--white)
-    }
+    .language-switch{position:fixed;top:20px;right:20px;background:var(--white);padding:6px;border-radius:24px;box-shadow:0 2px 8px rgba(0,0,0,.12);display:flex;gap:4px;z-index:1000}
+    .lang-btn{padding:8px 14px;border:none;background:transparent;color:var(--muted);font-size:10pt;font-weight:700;cursor:pointer;border-radius:18px;transition:.25s}
+    .lang-btn:hover{background:#eef2f7}
+    .lang-btn.active{background:linear-gradient(135deg,var(--accent-1),var(--accent-2));color:var(--white)}
     .lang-content{display:none}
     .lang-content.active{display:block}
-
     /* Layout */
     .container{display:grid;grid-template-columns:35% 65%;min-height:297mm}
-    .sidebar{
-      background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
-      color:var(--white); padding:38px 28px
-    }
-    .main-content{padding:40px 40px 40px 35px; background:var(--white)}
-
+    .sidebar{background:linear-gradient(135deg,var(--accent-1),var(--accent-2));color:var(--white);padding:38px 28px}
+    .main-content{padding:40px 40px 40px 35px;background:var(--white)}
     /* Sidebar */
     .profile-photo-container{text-align:center;margin-bottom:18px}
-    .profile-photo{
-      width:120px;height:120px;border-radius:50%;object-fit:cover;
-      border:4px solid rgba(255,255,255,.28); box-shadow:0 4px 12px rgba(0,0,0,.28)
-    }
+    .profile-photo{width:120px;height:120px;border-radius:50%;object-fit:cover;border:4px solid rgba(255,255,255,.28);box-shadow:0 4px 12px rgba(0,0,0,.28)}
     .profile-section{text-align:center;margin-bottom:30px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.18)}
     .name{font-size:24pt;font-weight:800;letter-spacing:-.5px;line-height:1.15;margin-bottom:6px}
     .job-title{font-size:11pt;font-weight:500;opacity:.95;letter-spacing:.4px}
     .sidebar-section{margin-bottom:26px}
-    .sidebar-heading{
-      font-size:10pt;font-weight:800;text-transform:uppercase;letter-spacing:.9px;margin-bottom:10px;opacity:.92
-    }
+    .sidebar-heading{font-size:10pt;font-weight:800;text-transform:uppercase;letter-spacing:.9px;margin-bottom:10px;opacity:.92}
     .contact-item{display:flex;align-items:flex-start;margin-bottom:9px;font-size:9pt;line-height:1.35}
     .contact-icon{margin-right:9px;opacity:.95;min-width:16px}
     .contact-link{color:#fff;text-decoration:none;word-break:break-all}
@@ -75,49 +42,27 @@
     .language-item{display:flex;justify-content:space-between;margin-bottom:7px;font-size:9pt}
     .language-name{font-weight:700}
     .language-level{opacity:.9}
-
     /* Main */
     .summary{margin-bottom:28px;padding-bottom:22px;border-bottom:2px solid var(--light-1)}
     .summary-text{font-size:10pt;color:#374151;text-align:justify}
-    .metrics-highlight{
-      background:linear-gradient(135deg,var(--light-2),var(--light-1));
-      padding:12px 16px;border-radius:8px;margin:14px 0;border-left:4px solid var(--accent-2)
-    }
+    .metrics-highlight{background:linear-gradient(135deg,var(--light-2),var(--light-1));padding:12px 16px;border-radius:8px;margin:14px 0;border-left:4px solid var(--accent-2)}
     .metrics-text{font-size:9.5pt;color:#374151;font-weight:700}
-
     .section{margin-bottom:26px}
-    .section-title{
-      font-size:13pt;font-weight:900;color:var(--accent-2);margin-bottom:14px;
-      text-transform:uppercase; letter-spacing:.5px; position:relative; padding-bottom:7px
-    }
-    .section-title:after{
-      content:''; position:absolute; left:0; bottom:0; width:50px; height:3px;
-      background:linear-gradient(90deg,var(--accent-1),var(--accent-2))
-    }
-
-    .experience-item{margin-bottom:18px; page-break-inside:avoid}
+    .section-title{font-size:13pt;font-weight:900;color:var(--accent-2);margin-bottom:14px;text-transform:uppercase;letter-spacing:.5px;position:relative;padding-bottom:7px}
+    .section-title:after{content:'';position:absolute;left:0;bottom:0;width:50px;height:3px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2))}
+    .experience-item{margin-bottom:18px;page-break-inside:avoid}
     .experience-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px}
     .job-role{font-size:11pt;font-weight:800;color:var(--text)}
     .job-dates{font-size:9pt;color:var(--muted);font-weight:700}
     .company-name{font-size:10pt;color:var(--accent-2);font-weight:700;margin-bottom:6px}
     .job-description{font-size:9.5pt;color:#475569;margin-bottom:6px}
     .achievements{list-style:none;padding-left:0}
-    .achievements li{
-      padding-left:16px; position:relative; margin-bottom:5px; font-size:9.5pt; color:#374151
-    }
-    .achievements li:before{
-      content:"▸"; position:absolute; left:0; color:var(--accent-2); font-weight:900
-    }
-
+    .achievements li{padding-left:16px;position:relative;margin-bottom:5px;font-size:9.5pt;color:#374151}
+    .achievements li:before{content:"▸";position:absolute;left:0;color:var(--accent-2);font-weight:900}
     .education-item{margin-bottom:12px}
     .degree-title{font-size:10.5pt;font-weight:800;color:var(--text);margin-bottom:2px}
     .institution{font-size:9.5pt;color:var(--muted)}
-
-    @media print{
-      body{background:#fff;padding:0}
-      .page-wrapper{box-shadow:none}
-      .language-switch{display:none}
-    }
+    @media print{body{background:#fff;padding:0}.page-wrapper{box-shadow:none}.language-switch{display:none}}
   </style>
 </head>
 <body>
@@ -153,13 +98,13 @@
 
           <div class="sidebar-section">
             <div class="sidebar-heading">Compétences</div>
-            <div class="pill">Pilotage 360 (brand, digital, RP)</div>
-            <div class="pill">Stratégie éditoriale & gouvernance</div>
-            <div class="pill">SEO & croissance organique</div>
-            <div class="pill">Social media & influence</div>
-            <div class="pill">ABM / lead gen / nurturing</div>
-            <div class="pill">Événementiel & prises de parole</div>
-            <div class="pill">Crisis & issues comms</div>
+            <div class="pill">Plan d’action marketing & go-to-market</div>
+            <div class="pill">Gestion portefeuille d’offres/produits</div>
+            <div class="pill">Mix 360 (ATL/BTL/TTL)</div>
+            <div class="pill">Coordination digital–trade–commercial</div>
+            <div class="pill">Pilotage agences & prestataires</div>
+            <div class="pill">Suivi budgétaire & ROI</div>
+            <div class="pill">Analytics, post-campagnes & veille</div>
           </div>
 
           <div class="sidebar-section">
@@ -168,15 +113,15 @@
             <div class="pill">Google Analytics & GSC</div>
             <div class="pill">WordPress & CMS</div>
             <div class="pill">Canva / Adobe Suite</div>
-            <div class="pill">Social & Email platforms</div>
+            <div class="pill">Social & email platforms</div>
             <div class="pill">Dashboards KPI</div>
           </div>
 
           <div class="sidebar-section">
             <div class="sidebar-heading">Langues</div>
-            <div class="language-item"><span class="language-name">Arabe</span><span class="language-level">Maternelle</span></div>
-            <div class="language-item"><span class="language-name">Français</span><span class="language-level">Maternelle</span></div>
-            <div class="language-item"><span class="language-name">Anglais</span><span class="language-level">Professionnel</span></div>
+            <div class="language-item"><span class="language-name">Français</span><span class="language-level">Bilingue (C2)</span></div>
+            <div class="language-item"><span class="language-name">Arabe</span><span class="language-level">Bilingue (C2)</span></div>
+            <div class="language-item"><span class="language-name">Anglais</span><span class="language-level">Courant (C1)</span></div>
           </div>
         </aside>
 
@@ -184,10 +129,10 @@
         <main class="main-content">
           <section class="summary">
             <p class="summary-text">
-              Responsable Communication & Marketing avec 10+ ans d’expérience dans des environnements corporate et tech.
-              Pilotage de dispositifs 360 (brand, digital, RP, contenus) et gouvernance éditoriale multi-entités. Culture KPI
-              (notoriété, trafic, MQL/SQL, EMV, engagement) et optimisation budget/ROI. Habitué aux contextes exigeants
-              (lancements, périodes sensibles, multi-pays) avec reporting exécutif clair et activable.
+              Responsable Communication & Marketing (10+ ans) — plan d’action marketing, gestion d’un portefeuille d’offres/produits
+              et mix 360 (ATL/BTL/TTL). Coordination transverse (digital, trade, commercial) et pilotage d’agences créa/médias.
+              Suivi budgétaire rigoureux, analyses post-campagnes et veille concurrentielle. Connaissance du marché marocain
+              (comportements d’achat, saisonnalités, leviers trade). FR/AR bilingue ; EN courant.
             </p>
             <div class="metrics-highlight"><div class="metrics-text">
               ✦ 10M+ de reach organique ✦ 2,1M+ d’engagement ✦ €100K+ d’earned media ✦ +150% d’audience ✦ 60+ campagnes
@@ -204,13 +149,14 @@
               </div>
               <div class="company-name">ABL Corporation – Fonds d’investissement international</div>
               <p class="job-description">
-                Pilotage stratégie contenu sur 4 verticales. Frameworks SEO, calendrier éditorial, contenus thought leadership pour audiences exécutives.
+                Co-pilotage du **plan d’action marketing contenu** aligné aux priorités business ; frameworks SEO, calendrier éditorial
+                et contenus de thought leadership pour audiences exécutives.
               </p>
               <ul class="achievements">
                 <li>4 stratégies complètes avec roadmaps sur 6 mois</li>
                 <li>30+ articles SEO générant des leads investisseurs qualifiés</li>
-                <li>Animation LinkedIn corporate avec engagement récurrent</li>
-                <li>Gouvernance éditoriale adoptée par les équipes marketing</li>
+                <li>Rituel de **post-campagnes** (KPI, insights, optimisations) partagé avec sales/trade</li>
+                <li>**Suivi budgétaire mensuel** (réel vs prévision) — exécution **on-time/on-budget** &gt;95%</li>
               </ul>
             </article>
 
@@ -221,13 +167,13 @@
               </div>
               <div class="company-name">Fan4All – Plateforme e-commerce SportTech</div>
               <p class="job-description">
-                Propriété éditoriale end-to-end : voix de marque, social, campagnes conversion premium, PR.
+                Propriété éditoriale end-to-end : voix de marque, social, PR et campagnes orientées conversion pour offres premium.
               </p>
               <ul class="achievements">
-                <li>2,1M de reach social, 14,45% d’engagement LinkedIn</li>
-                <li>€100K+ d’earned media via contenus RP</li>
-                <li>Campagnes conversion VIP → +28% taux de conversion</li>
-                <li>Chaîne éditoriale : planning, prod, diffusion, analytics</li>
+                <li>**Portefeuille d’offres premium** (expériences VIP) : positionnement & activations **mix 360** (owned/paid/PR)</li>
+                <li>Coordination **digital–trade–commercial** et **pilotage agences** créa/médias</li>
+                <li>2,1M de reach social, 14,45% d’engagement LinkedIn ; **EMV &gt; €100K**</li>
+                <li>**Veille concurrentielle** (offres, pricing, SOV) → recommandations trimestrielles</li>
               </ul>
             </article>
 
@@ -238,12 +184,12 @@
               </div>
               <div class="company-name">CIO Mag, Glovo, ATDA (missions Afrique)</div>
               <p class="job-description">
-                Conception et exécution de campagnes éditoriales pour tech, e-commerce et events sur plusieurs marchés africains.
+                Programmes éditoriaux pour tech, e-commerce et events sur plusieurs marchés africains.
               </p>
               <ul class="achievements">
-                <li><strong>CIO Mag :</strong> 60+ contenus; série AgriTech (interviews vidéo)</li>
-                <li><strong>Glovo Maroc :</strong> Docu-série “Humans of Glovo” (1,3M reach; 13,5K engagements) en phase sensible</li>
-                <li><strong>Sommet ATDA :</strong> 3M de reach organique; +42% LinkedIn (+1 500)</li>
+                <li><strong>CIO Mag :</strong> 60+ contenus ; série AgriTech (interviews vidéo)</li>
+                <li><strong>Glovo Maroc :</strong> Docu-série “Humans of Glovo” (1,3M reach ; 13,5K engagements)</li>
+                <li><strong>Sommet ATDA :</strong> 3M de reach organique ; +42% LinkedIn (+1 500)</li>
               </ul>
             </article>
 
@@ -254,10 +200,11 @@
               </div>
               <div class="company-name">Strateus Group – PR Media (affilié Ogilvy/Edelman)</div>
               <p class="job-description">
-                Dispositifs 360 pour Visa, IKEA, Spotify, Nokia, Casio : OOH/TV/digital/RP, événements, kits médias et éléments de langage.
+                Dispositifs **360** pour marques internationales (Visa, Spotify, Nokia, Casio) : OOH/TV/radio/digital, événements, kits médias,
+                éléments de langage, coordination agence média (planification/achat).
               </p>
               <ul class="achievements">
-                <li>Lancement IKEA « Living With Children » (affichage, TV, digital)</li>
+                <li>**Conduite médias on & offline** et respect des **budgets** & délais</li>
                 <li>20+ événements (conf. de presse, lancements) livrés avec assets presse</li>
               </ul>
             </article>
@@ -308,7 +255,7 @@
           </div>
           <div class="profile-section">
             <div class="name">ZAKARIA<br>GALLOUCH</div>
-            <div class="job-title">Communications &<br>Marketing Manager</div>
+            <div class="job-title">Marketing &<br>Communications Manager</div>
           </div>
 
           <div class="sidebar-section">
@@ -322,13 +269,13 @@
 
           <div class="sidebar-section">
             <div class="sidebar-heading">Core Skills</div>
-            <div class="pill">360 planning (brand, digital, PR)</div>
-            <div class="pill">Editorial strategy & governance</div>
-            <div class="pill">SEO & organic growth</div>
-            <div class="pill">Social media & influence</div>
-            <div class="pill">ABM / lead gen / nurturing</div>
-            <div class="pill">Events & speaking</div>
-            <div class="pill">Crisis & issues comms</div>
+            <div class="pill">Marketing action plan & go-to-market</div>
+            <div class="pill">Offers/products portfolio management</div>
+            <div class="pill">360 mix (ATL/BTL/TTL)</div>
+            <div class="pill">Cross-functional (digital–trade–sales)</div>
+            <div class="pill">Agencies & vendors leadership</div>
+            <div class="pill">Budget tracking & ROI</div>
+            <div class="pill">Analytics, post-campaigns & intel</div>
           </div>
 
           <div class="sidebar-section">
@@ -343,9 +290,9 @@
 
           <div class="sidebar-section">
             <div class="sidebar-heading">Languages</div>
-            <div class="language-item"><span class="language-name">Arabic</span><span class="language-level">Native</span></div>
-            <div class="language-item"><span class="language-name">French</span><span class="language-level">Native</span></div>
-            <div class="language-item"><span class="language-name">English</span><span class="language-level">Professional</span></div>
+            <div class="language-item"><span class="language-name">French</span><span class="language-level">Bilingual (C2)</span></div>
+            <div class="language-item"><span class="language-name">Arabic</span><span class="language-level">Bilingual (C2)</span></div>
+            <div class="language-item"><span class="language-name">English</span><span class="language-level">Advanced (C1)</span></div>
           </div>
         </aside>
 
@@ -353,10 +300,10 @@
         <main class="main-content">
           <section class="summary">
             <p class="summary-text">
-              Communications & Marketing Manager with 10+ years across corporate and tech contexts. Leads 360 programs
-              (brand, digital, PR, content) and multi-entity editorial governance. KPI-driven mindset (awareness, traffic,
-              MQL/SQL, EMV, engagement) with clear executive reporting and ROI optimization. Comfortable with demanding,
-              multi-country environments and sensitive moments.
+              Marketing & Communications Manager (10+ yrs) — marketing action plans, offers/products portfolio oversight
+              and 360 mix (ATL/BTL/TTL). Cross-functional coordination (digital, trade, sales) and leadership of creative/media
+              agencies. Rigorous budget tracking, structured post-campaign reviews and competitive intelligence. Strong knowledge
+              of the Moroccan market. FR/AR bilingual; EN advanced.
             </p>
             <div class="metrics-highlight"><div class="metrics-text">
               ✦ 10M+ organic reach ✦ 2.1M+ engagements ✦ €100K+ earned media ✦ +150% audience ✦ 60+ campaigns
@@ -373,13 +320,14 @@
               </div>
               <div class="company-name">ABL Corporation – International Investment Fund</div>
               <p class="job-description">
-                Led content strategy across 4 verticals. SEO frameworks, editorial calendar, and executive thought-leadership content.
+                Co-led the **content marketing action plan** aligned with business priorities; SEO frameworks, editorial calendar
+                and executive thought-leadership content.
               </p>
               <ul class="achievements">
-                <li>4 full strategies with 6-month roadmaps</li>
+                <li>4 complete strategies with 6-month roadmaps</li>
                 <li>30+ SEO articles → qualified investor leads</li>
-                <li>Consistent engagement on corporate LinkedIn</li>
-                <li>Editorial governance adopted by marketing teams</li>
+                <li>Structured **post-campaigns** (KPIs, insights, optimizations) with sales/trade</li>
+                <li>**Monthly budget tracking** (actual vs forecast); **on-time/on-budget** execution &gt;95%</li>
               </ul>
             </article>
 
@@ -390,13 +338,13 @@
               </div>
               <div class="company-name">Fan4All – SportTech E-commerce Platform</div>
               <p class="job-description">
-                Owned content end-to-end: brand voice, social channels, conversion campaigns and PR.
+                End-to-end editorial ownership: brand voice, social, PR and conversion-driven campaigns for premium offers.
               </p>
               <ul class="achievements">
-                <li>2.1M reach; 14.45% average LinkedIn engagement</li>
-                <li>€100K+ earned media through PR content</li>
-                <li>VIP conversion campaigns → +28% conversion rate</li>
-                <li>Editorial chain: planning, production, distribution, analytics</li>
+                <li>**Premium offers portfolio** (VIP experiences): positioning & **360 mix** (owned/paid/PR) activations</li>
+                <li>**Digital–trade–sales** alignment and **agencies leadership** (creative/media)</li>
+                <li>2.1M social reach, 14.45% LinkedIn engagement; **EMV &gt; €100K**</li>
+                <li>**Competitive intel** (offers, pricing, SOV) → quarterly recommendations</li>
               </ul>
             </article>
 
@@ -410,7 +358,7 @@
                 Editorial programs for tech, e-commerce and events across African markets.
               </p>
               <ul class="achievements">
-                <li><strong>CIO Mag:</strong> 60+ pieces; AgriTech video interview series</li>
+                <li><strong>CIO Mag:</strong> 60+ pieces; AgriTech interview series</li>
                 <li><strong>Glovo Morocco:</strong> “Humans of Glovo” docu-series (1.3M reach; 13.5K engagements)</li>
                 <li><strong>ATDA Summit:</strong> 3M organic reach; +42% LinkedIn (+1,500)</li>
               </ul>
@@ -423,11 +371,12 @@
               </div>
               <div class="company-name">Strateus Group – PR Media (Ogilvy/Edelman affiliate)</div>
               <p class="job-description">
-                360 campaigns for Visa, IKEA, Spotify, Nokia, Casio. OOH/TV/digital/PR, events, media kits and messaging.
+                **360** programs for international brands (Visa, Spotify, Nokia, Casio): OOH/TV/radio/digital, events, media kits,
+                messaging and coordination with the media agency (planning/buying).
               </p>
               <ul class="achievements">
-                <li>IKEA “Living With Children” launch (OOH, TV, digital)</li>
-                <li>20+ events (press conferences, launches) with press assets delivered</li>
+                <li>**On & offline media** execution with **budget** and timeline ownership</li>
+                <li>20+ events (press conferences, launches) delivered with press assets</li>
               </ul>
             </article>
 
@@ -475,7 +424,6 @@
       const en = document.getElementById('content-en');
       const btnFr = document.getElementById('btn-fr');
       const btnEn = document.getElementById('btn-en');
-
       if(lang === 'en'){
         en.classList.add('active'); fr.classList.remove('active');
         btnEn.classList.add('active'); btnFr.classList.remove('active');
