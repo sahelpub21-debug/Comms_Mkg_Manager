@@ -8,7 +8,6 @@
   <style>
     @page { size: A4; margin: 0; }
     :root{
-      /* Palette sobre (ardoise) */
       --accent-1:#475569; --accent-2:#334155; --accent-3:#0f172a;
       --light-1:#e2e8f0; --light-2:#f1f5f9;
       --text:#111827; --muted:#64748b; --bg:#f8fafc; --white:#ffffff;
@@ -16,18 +15,17 @@
     *{margin:0;padding:0;box-sizing:border-box}
     body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:10pt;line-height:1.55;color:var(--text);background:var(--bg);padding:20px 0;}
     .page-wrapper{max-width:210mm;margin:0 auto;background:var(--white);box-shadow:0 2px 10px rgba(0,0,0,.08)}
-    /* Language switch */
     .language-switch{position:fixed;top:20px;right:20px;background:var(--white);padding:6px;border-radius:24px;box-shadow:0 2px 8px rgba(0,0,0,.12);display:flex;gap:4px;z-index:1000}
     .lang-btn{padding:8px 14px;border:none;background:transparent;color:var(--muted);font-size:10pt;font-weight:700;cursor:pointer;border-radius:18px;transition:.25s}
     .lang-btn:hover{background:#eef2f7}
     .lang-btn.active{background:linear-gradient(135deg,var(--accent-1),var(--accent-2));color:var(--white)}
     .lang-content{display:none}
     .lang-content.active{display:block}
-    /* Layout */
+
     .container{display:grid;grid-template-columns:35% 65%;min-height:297mm}
     .sidebar{background:linear-gradient(135deg,var(--accent-1),var(--accent-2));color:var(--white);padding:38px 28px}
     .main-content{padding:40px 40px 40px 35px;background:var(--white)}
-    /* Sidebar */
+
     .profile-photo-container{text-align:center;margin-bottom:18px}
     .profile-photo{width:120px;height:120px;border-radius:50%;object-fit:cover;border:4px solid rgba(255,255,255,.28);box-shadow:0 4px 12px rgba(0,0,0,.28)}
     .profile-section{text-align:center;margin-bottom:30px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.18)}
@@ -42,7 +40,7 @@
     .language-item{display:flex;justify-content:space-between;margin-bottom:7px;font-size:9pt}
     .language-name{font-weight:700}
     .language-level{opacity:.9}
-    /* Main */
+
     .summary{margin-bottom:28px;padding-bottom:22px;border-bottom:2px solid var(--light-1)}
     .summary-text{font-size:10pt;color:#374151;text-align:justify}
     .metrics-highlight{background:linear-gradient(135deg,var(--light-2),var(--light-1));padding:12px 16px;border-radius:8px;margin:14px 0;border-left:4px solid var(--accent-2)}
@@ -100,9 +98,8 @@
             <div class="sidebar-heading">Compétences</div>
             <div class="pill">Plan d’action marketing & go-to-market</div>
             <div class="pill">Gestion portefeuille d’offres/produits</div>
-            <div class="pill">Mix 360 (ATL/BTL/TTL)</div>
-            <div class="pill">Coordination digital–trade–commercial</div>
-            <div class="pill">Pilotage agences & prestataires</div>
+            <div class="pill">Mix 360 (Paid/Owned/PR)</div>
+            <div class="pill">Coordination marketing – équipes & agences</div>
             <div class="pill">Suivi budgétaire & ROI</div>
             <div class="pill">Analytics, post-campagnes & veille</div>
           </div>
@@ -129,13 +126,13 @@
         <main class="main-content">
           <section class="summary">
             <p class="summary-text">
-              Responsable Communication & Marketing (10+ ans) — plan d’action marketing, gestion d’un portefeuille d’offres/produits
-              et mix 360 (ATL/BTL/TTL). Coordination transverse (digital, trade, commercial) et pilotage d’agences créa/médias.
-              Suivi budgétaire rigoureux, analyses post-campagnes et veille concurrentielle. Connaissance du marché marocain
-              (comportements d’achat, saisonnalités, leviers trade). FR/AR bilingue ; EN courant.
+              Responsable Communication & Marketing (10+ ans) — stratégies de marque et de contenu, plans d’action marketing,
+              gestion de portefeuilles d’offres/produits et campagnes 360 (Paid/Owned/PR). Coordination d’équipes et d’agences,
+              suivi budgétaire et pilotage de la performance. Connaissance du marché marocain et des environnements internationaux.
+              Méthode orientée impact : gouvernance, KPIs, reporting exécutif, améliorations continues.
             </p>
             <div class="metrics-highlight"><div class="metrics-text">
-              ✦ 10M+ de reach organique ✦ 2,1M+ d’engagement ✦ €100K+ d’earned media ✦ +150% d’audience ✦ 60+ campagnes
+              ✦ 10M+ de reach organique ✦ 2,1M+ d’engagement ✦ **300 000 € PR value (lancement d’une start-up)** ✦ +150% d’audience
             </div></div>
           </section>
 
@@ -147,49 +144,33 @@
                 <div class="job-role">Content Manager</div>
                 <div class="job-dates">Mars 2025 – Juil. 2025</div>
               </div>
-              <div class="company-name">ABL Corporation – Fonds d’investissement international</div>
+              <div class="company-name">ABL Corporation – Fonds d’investissement (verticale principale : ABL Aviation)</div>
               <p class="job-description">
-                Co-pilotage du **plan d’action marketing contenu** aligné aux priorités business ; frameworks SEO, calendrier éditorial
-                et contenus de thought leadership pour audiences exécutives.
+                Conception et déploiement du **plan marketing éditorial** multi-verticales (finance, innovation, aviation/ESG).
+                Mise en place d’une **stratégie de marque** et d’un **plan de communication interne** pour renforcer l’alignement.
               </p>
               <ul class="achievements">
-                <li>4 stratégies complètes avec roadmaps sur 6 mois</li>
-                <li>30+ articles SEO générant des leads investisseurs qualifiés</li>
-                <li>Rituel de **post-campagnes** (KPI, insights, optimisations) partagé avec sales/trade</li>
-                <li>**Suivi budgétaire mensuel** (réel vs prévision) — exécution **on-time/on-budget** &gt;95%</li>
+                <li>**Audits de marque** et **benchmarks** pour orienter message house et priorités contenus</li>
+                <li>Contenus premium (tribunes, rapports, articles) au service de la crédibilité B2B (aviation, finance)</li>
+                <li>**Reporting centralisé** (SEO, audits, performance, médias) pour arbitrages exécutifs</li>
+                <li>Gouvernance éditoriale : briefs, workflows, QA ; exécution fiable et mesurée</li>
               </ul>
             </article>
 
             <article class="experience-item">
               <div class="experience-header">
-                <div class="job-role">Responsable Communication (focus contenu)</div>
+                <div class="job-role">Responsable Communication (Marketplace)</div>
                 <div class="job-dates">Fév. 2022 – Fév. 2025</div>
               </div>
-              <div class="company-name">Fan4All – Plateforme e-commerce SportTech</div>
+              <div class="company-name">Fan4All – Plateforme e-commerce SportTech (start-up)</div>
               <p class="job-description">
-                Propriété éditoriale end-to-end : voix de marque, social, PR et campagnes orientées conversion pour offres premium.
+                Pilotage de la stratégie de **marque, contenus et PR** pour soutenir l’acquisition et la conversion dans un contexte marketplace.
               </p>
               <ul class="achievements">
-                <li>**Portefeuille d’offres premium** (expériences VIP) : positionnement & activations **mix 360** (owned/paid/PR)</li>
-                <li>Coordination **digital–trade–commercial** et **pilotage agences** créa/médias</li>
-                <li>2,1M de reach social, 14,45% d’engagement LinkedIn ; **EMV &gt; €100K**</li>
-                <li>**Veille concurrentielle** (offres, pricing, SOV) → recommandations trimestrielles</li>
-              </ul>
-            </article>
-
-            <article class="experience-item">
-              <div class="experience-header">
-                <div class="job-role">Stratège Contenu & Brand Manager (Freelance)</div>
-                <div class="job-dates">2020 – 2022</div>
-              </div>
-              <div class="company-name">CIO Mag, Glovo, ATDA (missions Afrique)</div>
-              <p class="job-description">
-                Programmes éditoriaux pour tech, e-commerce et events sur plusieurs marchés africains.
-              </p>
-              <ul class="achievements">
-                <li><strong>CIO Mag :</strong> 60+ contenus ; série AgriTech (interviews vidéo)</li>
-                <li><strong>Glovo Maroc :</strong> Docu-série “Humans of Glovo” (1,3M reach ; 13,5K engagements)</li>
-                <li><strong>Sommet ATDA :</strong> 3M de reach organique ; +42% LinkedIn (+1 500)</li>
+                <li>**Phase de lancement (PR)** : annonce des **partenariats avec des clubs** → **PR value de 300 000 €** pour une **start-up en lancement**</li>
+                <li>Programmes éditoriaux orientés UX et crédibilité produit ; gouvernance contenu adoptée</li>
+                <li>Campagnes conversion premium (owned/paid/PR) ; **+28 % de taux de conversion**</li>
+                <li>Tableaux de bord mensuels (trafic, engagement, conversion) pour décisions court terme</li>
               </ul>
             </article>
 
@@ -198,30 +179,32 @@
                 <div class="job-role">Account Manager & Lead Contenu</div>
                 <div class="job-dates">Jan. 2017 – Jan. 2020</div>
               </div>
-              <div class="company-name">Strateus Group – PR Media (affilié Ogilvy/Edelman)</div>
+              <div class="company-name">Strateus Group / PR Media – **Agences de relations presse & affaires publiques**</div>
               <p class="job-description">
-                Dispositifs **360** pour marques internationales (Visa, Spotify, Nokia, Casio) : OOH/TV/radio/digital, événements, kits médias,
-                éléments de langage, coordination agence média (planification/achat).
+                Gestion de portefeuilles comptes et **lead RP/PA** : stratégie de messages, dossiers de presse, relations médias, prises de parole,
+                coordination social media et coordination d’agences partenaires (créa, media relations).
               </p>
               <ul class="achievements">
-                <li>**Conduite médias on & offline** et respect des **budgets** & délais</li>
-                <li>20+ événements (conf. de presse, lancements) livrés avec assets presse</li>
+                <li>Portefeuille incluant : **Visa**, **Bell Technologies**, **Forever Living Products**</li>
+                <li>Conception de dispositifs RP (conférences, interviews, tribunes) et contenu corporate</li>
+                <li>Mesure et reporting : couverture, SOV, réputation, recommandations d’optimisation</li>
               </ul>
             </article>
 
             <article class="experience-item">
               <div class="experience-header">
-                <div class="job-role">Responsable Contenu & Communication</div>
+                <div class="job-role">Chef de projet communication 360</div>
                 <div class="job-dates">2013 – 2017</div>
               </div>
-              <div class="company-name">Com Par Magie – Agence de communication</div>
+              <div class="company-name">Com’ Par Magie – Agence de communication</div>
               <p class="job-description">
-                Campagnes corporate (marque employeur, lancements produits, activations digitales) et gestion des canaux owned.
+                Conception et **pilotage de dispositifs 360** (corporate, produits), **gestion de production contenus** (web/social/campagnes),
+                **campagne management** et **suivi de performance**.
               </p>
               <ul class="achievements">
-                <li>Campagnes 360° pour Phone Group (BPO)</li>
-                <li>Contenus marque employeur & supports de recrutement</li>
-                <li>Gestion site, social & leviers d’acquisition</li>
+                <li>Portefeuille principaux comptes : **LG**, **CNSS**, **Majorel Africa**, **CEED Network**</li>
+                <li>Gestion des canaux owned et campagnes digitales (du brief aux bilans)</li>
+                <li>Optimisations continues basées sur KPIs (visibilité, trafic, engagement)</li>
               </ul>
             </article>
           </section>
@@ -271,21 +254,10 @@
             <div class="sidebar-heading">Core Skills</div>
             <div class="pill">Marketing action plan & go-to-market</div>
             <div class="pill">Offers/products portfolio management</div>
-            <div class="pill">360 mix (ATL/BTL/TTL)</div>
-            <div class="pill">Cross-functional (digital–trade–sales)</div>
-            <div class="pill">Agencies & vendors leadership</div>
+            <div class="pill">360 mix (Paid/Owned/PR)</div>
+            <div class="pill">Team & agency coordination</div>
             <div class="pill">Budget tracking & ROI</div>
             <div class="pill">Analytics, post-campaigns & intel</div>
-          </div>
-
-          <div class="sidebar-section">
-            <div class="sidebar-heading">Tools & MarTech</div>
-            <div class="pill">HubSpot (Marketing/CRM)</div>
-            <div class="pill">Google Analytics & GSC</div>
-            <div class="pill">WordPress & CMS</div>
-            <div class="pill">Canva / Adobe Suite</div>
-            <div class="pill">Social & email platforms</div>
-            <div class="pill">KPI dashboards</div>
           </div>
 
           <div class="sidebar-section">
@@ -300,13 +272,12 @@
         <main class="main-content">
           <section class="summary">
             <p class="summary-text">
-              Marketing & Communications Manager (10+ yrs) — marketing action plans, offers/products portfolio oversight
-              and 360 mix (ATL/BTL/TTL). Cross-functional coordination (digital, trade, sales) and leadership of creative/media
-              agencies. Rigorous budget tracking, structured post-campaign reviews and competitive intelligence. Strong knowledge
-              of the Moroccan market. FR/AR bilingual; EN advanced.
+              Marketing & Communications Manager (10+ yrs) — brand & content strategy, marketing action plans, portfolio oversight
+              and 360 campaigns (Paid/Owned/PR). Coordination of teams and agencies, budget tracking and performance leadership.
+              Moroccan market awareness and international exposure. Executive-ready reporting and continuous improvement mindset.
             </p>
             <div class="metrics-highlight"><div class="metrics-text">
-              ✦ 10M+ organic reach ✦ 2.1M+ engagements ✦ €100K+ earned media ✦ +150% audience ✦ 60+ campaigns
+              ✦ 10M+ organic reach ✦ 2.1M+ engagements ✦ **€300K PR value (launch, start-up)** ✦ +150% audience
             </div></div>
           </section>
 
@@ -318,49 +289,33 @@
                 <div class="job-role">Content Manager</div>
                 <div class="job-dates">Mar 2025 – Jul 2025</div>
               </div>
-              <div class="company-name">ABL Corporation – International Investment Fund</div>
+              <div class="company-name">ABL Corporation – Investment fund (main vertical: ABL Aviation)</div>
               <p class="job-description">
-                Co-led the **content marketing action plan** aligned with business priorities; SEO frameworks, editorial calendar
-                and executive thought-leadership content.
+                Designed and deployed the **editorial marketing plan** across verticals (finance, innovation, aviation/ESG).
+                Built a **brand strategy** and **internal communications plan** to drive alignment.
               </p>
               <ul class="achievements">
-                <li>4 complete strategies with 6-month roadmaps</li>
-                <li>30+ SEO articles → qualified investor leads</li>
-                <li>Structured **post-campaigns** (KPIs, insights, optimizations) with sales/trade</li>
-                <li>**Monthly budget tracking** (actual vs forecast); **on-time/on-budget** execution &gt;95%</li>
+                <li>**Brand audits** & **benchmarks** to inform message house and priorities</li>
+                <li>Premium content (op-eds, reports, articles) to strengthen B2B credibility (aviation, finance)</li>
+                <li>**Centralized reporting** (SEO, audits, performance, media) for executive decisions</li>
+                <li>Editorial governance: briefs, workflows, QA; reliable execution and measurement</li>
               </ul>
             </article>
 
             <article class="experience-item">
               <div class="experience-header">
-                <div class="job-role">Head of Communications (content focus)</div>
+                <div class="job-role">Head of Communications (Marketplace)</div>
                 <div class="job-dates">Feb 2022 – Feb 2025</div>
               </div>
-              <div class="company-name">Fan4All – SportTech E-commerce Platform</div>
+              <div class="company-name">Fan4All – SportTech e-commerce platform (start-up)</div>
               <p class="job-description">
-                End-to-end editorial ownership: brand voice, social, PR and conversion-driven campaigns for premium offers.
+                Led **brand, content and PR** to support acquisition and conversion in a marketplace environment.
               </p>
               <ul class="achievements">
-                <li>**Premium offers portfolio** (VIP experiences): positioning & **360 mix** (owned/paid/PR) activations</li>
-                <li>**Digital–trade–sales** alignment and **agencies leadership** (creative/media)</li>
-                <li>2.1M social reach, 14.45% LinkedIn engagement; **EMV &gt; €100K**</li>
-                <li>**Competitive intel** (offers, pricing, SOV) → quarterly recommendations</li>
-              </ul>
-            </article>
-
-            <article class="experience-item">
-              <div class="experience-header">
-                <div class="job-role">Content Strategist & Brand Manager (Freelance)</div>
-                <div class="job-dates">2020 – 2022</div>
-              </div>
-              <div class="company-name">CIO Mag, Glovo, ATDA (Africa)</div>
-              <p class="job-description">
-                Editorial programs for tech, e-commerce and events across African markets.
-              </p>
-              <ul class="achievements">
-                <li><strong>CIO Mag:</strong> 60+ pieces; AgriTech interview series</li>
-                <li><strong>Glovo Morocco:</strong> “Humans of Glovo” docu-series (1.3M reach; 13.5K engagements)</li>
-                <li><strong>ATDA Summit:</strong> 3M organic reach; +42% LinkedIn (+1,500)</li>
+                <li>**Launch PR phase**: announced **club partnerships** → **€300K PR value** for a **start-up at launch**</li>
+                <li>Editorial programs focused on UX & product credibility; governance adopted</li>
+                <li>Conversion campaigns (owned/paid/PR) → **+28% conversion rate**</li>
+                <li>Monthly dashboards (traffic, engagement, conversion) to guide quick decisions</li>
               </ul>
             </article>
 
@@ -369,30 +324,32 @@
                 <div class="job-role">Account Manager & Content Lead</div>
                 <div class="job-dates">Jan 2017 – Jan 2020</div>
               </div>
-              <div class="company-name">Strateus Group – PR Media (Ogilvy/Edelman affiliate)</div>
+              <div class="company-name">Strateus Group / PR Media – **PR & public affairs agencies**</div>
               <p class="job-description">
-                **360** programs for international brands (Visa, Spotify, Nokia, Casio): OOH/TV/radio/digital, events, media kits,
-                messaging and coordination with the media agency (planning/buying).
+                Portfolio ownership and **PR/PA leadership**: messaging, press kits, media relations, speaking opportunities,
+                social coordination and partner agencies alignment (creative, media relations).
               </p>
               <ul class="achievements">
-                <li>**On & offline media** execution with **budget** and timeline ownership</li>
-                <li>20+ events (press conferences, launches) delivered with press assets</li>
+                <li>Portfolio included: **Visa**, **Bell Technologies**, **Forever Living Products**</li>
+                <li>Designed PR programs (press conferences, interviews, op-eds) and corporate content</li>
+                <li>Measurement & reporting: coverage, SOV, reputation, optimization plans</li>
               </ul>
             </article>
 
             <article class="experience-item">
               <div class="experience-header">
-                <div class="job-role">Content & Communications Manager</div>
+                <div class="job-role">360 Communications Project Manager</div>
                 <div class="job-dates">2013 – 2017</div>
               </div>
-              <div class="company-name">Com Par Magie – Communications Agency</div>
+              <div class="company-name">Com’ Par Magie – Communications agency</div>
               <p class="job-description">
-                Corporate campaigns (employer brand, product launches, digital activations) and owned channels management.
+                **Designed and managed 360 programs** (corporate, products), **content production** (web/social/campaigns),
+                **campaign management** and **performance tracking**.
               </p>
               <ul class="achievements">
-                <li>360 campaigns for Phone Group (BPO)</li>
-                <li>Employer-branding content & recruitment materials</li>
-                <li>Owned web, social and acquisition initiatives</li>
+                <li>Main portfolio: **LG**, **CNSS**, **Majorel Africa**, **CEED Network**</li>
+                <li>Owned channels and digital campaigns from brief to post-mortems</li>
+                <li>Continuous KPI-based optimizations (visibility, traffic, engagement)</li>
               </ul>
             </article>
           </section>
