@@ -3,64 +3,93 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Zakaria Gallouch — Responsable Communication & Marketing</title>
+  <title>Zakaria Gallouch — Spécialiste Communication & Marketing</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     @page { size: A4; margin: 0; }
     :root{
-      --accent-1:#475569; --accent-2:#334155; --accent-3:#0f172a;
-      --light-1:#e2e8f0; --light-2:#f1f5f9;
-      --text:#111827; --muted:#64748b; --bg:#f8fafc; --white:#ffffff;
+      /* Palette sobre premium (encre) */
+      --ink:#0f172a;         /* bleu nuit quasi-noir */
+      --ink-2:#1e293b;       /* ardoise foncé */
+      --ink-3:#334155;       /* ardoise moyen */
+      --line:#e2e8f0;        /* traits et séparateurs */
+      --paper:#ffffff;
+      --bg:#f8fafc;
+      --muted:#475569;
+      --chip:#f1f5f9;
+      --accent:#1f2937;      /* discret, pour soulignements */
     }
     *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:10pt;line-height:1.55;color:var(--text);background:var(--bg);padding:20px 0;}
-    .page-wrapper{max-width:210mm;margin:0 auto;background:var(--white);box-shadow:0 2px 10px rgba(0,0,0,.08)}
-    .language-switch{position:fixed;top:20px;right:20px;background:var(--white);padding:6px;border-radius:24px;box-shadow:0 2px 8px rgba(0,0,0,.12);display:flex;gap:4px;z-index:1000}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:10pt;line-height:1.55;color:var(--ink);background:var(--bg);padding:20px 0;}
+    .page-wrapper{max-width:210mm;margin:0 auto;background:var(--paper);box-shadow:0 2px 12px rgba(15,23,42,.08)}
+    .language-switch{position:fixed;top:20px;right:20px;background:var(--paper);padding:6px;border-radius:24px;box-shadow:0 2px 10px rgba(15,23,42,.15);display:flex;gap:4px;z-index:1000}
     .lang-btn{padding:8px 14px;border:none;background:transparent;color:var(--muted);font-size:10pt;font-weight:700;cursor:pointer;border-radius:18px;transition:.25s}
     .lang-btn:hover{background:#eef2f7}
-    .lang-btn.active{background:linear-gradient(135deg,var(--accent-1),var(--accent-2));color:var(--white)}
+    .lang-btn.active{background:var(--ink-2);color:var(--paper)}
     .lang-content{display:none}
     .lang-content.active{display:block}
 
-    .container{display:grid;grid-template-columns:35% 65%;min-height:297mm}
-    .sidebar{background:linear-gradient(135deg,var(--accent-1),var(--accent-2));color:var(--white);padding:38px 28px}
-    .main-content{padding:40px 40px 40px 35px;background:var(--white)}
+    .container{display:grid;grid-template-columns:34% 66%;min-height:297mm}
+    .sidebar{background:linear-gradient(180deg, var(--ink-2) 0%, var(--ink-2) 100%);color:var(--paper);padding:36px 26px;border-right:1px solid rgba(255,255,255,.08)}
+    .main-content{padding:40px 40px 40px 34px;background:var(--paper)}
 
-    .profile-photo-container{text-align:center;margin-bottom:18px}
-    .profile-photo{width:120px;height:120px;border-radius:50%;object-fit:cover;border:4px solid rgba(255,255,255,.28);box-shadow:0 4px 12px rgba(0,0,0,.28)}
-    .profile-section{text-align:center;margin-bottom:30px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.18)}
-    .name{font-size:24pt;font-weight:800;letter-spacing:-.5px;line-height:1.15;margin-bottom:6px}
-    .job-title{font-size:11pt;font-weight:500;opacity:.95;letter-spacing:.4px}
-    .sidebar-section{margin-bottom:26px}
+    .profile-photo-container{text-align:center;margin-bottom:16px}
+    .profile-photo{width:118px;height:118px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,.25);box-shadow:0 4px 12px rgba(0,0,0,.25)}
+    .profile-section{text-align:center;margin-bottom:28px;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.16)}
+    .name{font-size:23pt;font-weight:800;letter-spacing:-.4px;line-height:1.12;margin-bottom:6px}
+    .job-title{font-size:11pt;font-weight:600;opacity:.95;letter-spacing:.3px}
+
+    .sidebar-section{margin-bottom:24px}
     .sidebar-heading{font-size:10pt;font-weight:800;text-transform:uppercase;letter-spacing:.9px;margin-bottom:10px;opacity:.92}
-    .contact-item{display:flex;align-items:flex-start;margin-bottom:9px;font-size:9pt;line-height:1.35}
+    .contact-item{display:flex;align-items:flex-start;margin-bottom:8px;font-size:9pt;line-height:1.35}
     .contact-icon{margin-right:9px;opacity:.95;min-width:16px}
     .contact-link{color:#fff;text-decoration:none;word-break:break-all}
-    .pill{background:rgba(255,255,255,.14);padding:7px 11px;border-radius:6px;margin-bottom:6px;font-size:9pt;font-weight:500}
-    .language-item{display:flex;justify-content:space-between;margin-bottom:7px;font-size:9pt}
+
+    .pill{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:6px 10px;border-radius:7px;margin:4px 6px 6px 0;font-size:9pt;font-weight:500;white-space:nowrap}
+    .language-item{display:flex;justify-content:space-between;margin-bottom:6px;font-size:9pt}
     .language-name{font-weight:700}
     .language-level{opacity:.9}
 
-    .summary{margin-bottom:28px;padding-bottom:22px;border-bottom:2px solid var(--light-1)}
-    .summary-text{font-size:10pt;color:#374151;text-align:justify}
-    .metrics-highlight{background:linear-gradient(135deg,var(--light-2),var(--light-1));padding:12px 16px;border-radius:8px;margin:14px 0;border-left:4px solid var(--accent-2)}
-    .metrics-text{font-size:9.5pt;color:#374151;font-weight:700}
-    .section{margin-bottom:26px}
-    .section-title{font-size:13pt;font-weight:900;color:var(--accent-2);margin-bottom:14px;text-transform:uppercase;letter-spacing:.5px;position:relative;padding-bottom:7px}
-    .section-title:after{content:'';position:absolute;left:0;bottom:0;width:50px;height:3px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2))}
-    .experience-item{margin-bottom:18px;page-break-inside:avoid}
-    .experience-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px}
-    .job-role{font-size:11pt;font-weight:800;color:var(--text)}
+    .summary{margin-bottom:26px;padding-bottom:20px;border-bottom:1.5px solid var(--line)}
+    .summary-text{font-size:10pt;color:var(--muted);text-align:justify}
+    .metrics{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+    .metric-chip{background:var(--chip);border:1px solid var(--line);padding:6px 10px;border-radius:7px;font-size:9pt;color:var(--ink-3);font-weight:600}
+
+    .section{margin-bottom:24px}
+    .section-title{font-size:13pt;font-weight:900;color:var(--ink-2);margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px;position:relative;padding-bottom:7px}
+    .section-title:after{content:'';position:absolute;left:0;bottom:0;width:54px;height:2.5px;background:var(--ink-2)}
+
+    .experience-item{margin-bottom:18px;page-break-inside:avoid;border-left:2px solid var(--line);padding-left:12px}
+    .experience-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+    .job-role{font-size:11pt;font-weight:800;color:var(--ink)}
     .job-dates{font-size:9pt;color:var(--muted);font-weight:700}
-    .company-name{font-size:10pt;color:var(--accent-2);font-weight:700;margin-bottom:6px}
-    .job-description{font-size:9.5pt;color:#475569;margin-bottom:6px}
+    .company-line{display:flex;align-items:center;gap:10px;margin:4px 0 8px}
+    .company-name{font-size:10pt;color:var(--ink-2);font-weight:700}
+    .badge{font-size:8.8pt;color:var(--ink-3);background:var(--chip);border:1px solid var(--line);border-radius:6px;padding:3px 8px}
+    .job-description{font-size:9.5pt;color:var(--muted);margin-bottom:8px}
     .achievements{list-style:none;padding-left:0}
     .achievements li{padding-left:16px;position:relative;margin-bottom:5px;font-size:9.5pt;color:#374151}
-    .achievements li:before{content:"▸";position:absolute;left:0;color:var(--accent-2);font-weight:900}
+    .achievements li:before{content:"▸";position:absolute;left:0;color:var(--ink-2);font-weight:900}
+
+    /* Placeholders logos / images */
+    .placeholders{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 2px}
+    .logo-ph,.image-ph{
+      border:1px dashed var(--line);border-radius:8px;background:#fafcff;color:var(--muted);
+      display:flex;align-items:center;justify-content:center;text-align:center
+    }
+    .logo-ph{width:64px;height:36px;font-size:8pt}
+    .image-ph{width:120px;height:72px;font-size:8.5pt}
     .education-item{margin-bottom:12px}
-    .degree-title{font-size:10.5pt;font-weight:800;color:var(--text);margin-bottom:2px}
+    .degree-title{font-size:10.5pt;font-weight:800;color:var(--ink);margin-bottom:2px}
     .institution{font-size:9.5pt;color:var(--muted)}
-    @media print{body{background:#fff;padding:0}.page-wrapper{box-shadow:none}.language-switch{display:none}}
+
+    @media print{
+      body{background:#fff;padding:0}
+      .page-wrapper{box-shadow:none}
+      .language-switch{display:none}
+      .pill{background:#fff;color:#000;border-color:#999}
+      .logo-ph,.image-ph{color:#666;background:#fff;border-color:#bbb}
+    }
   </style>
 </head>
 <body>
@@ -82,7 +111,7 @@
           </div>
           <div class="profile-section">
             <div class="name">ZAKARIA<br>GALLOUCH</div>
-            <div class="job-title">Responsable Communication<br>& Marketing</div>
+            <div class="job-title">Spécialiste Communication & Marketing</div>
           </div>
 
           <div class="sidebar-section">
@@ -91,7 +120,7 @@
             <div class="contact-item"><span class="contact-icon">📱</span><span>+212 627 056 916</span></div>
             <div class="contact-item"><span class="contact-icon">📍</span><span>Casablanca, Maroc</span></div>
             <div class="contact-item"><span class="contact-icon">🔗</span><a href="https://linkedin.com/in/zakaria-gallouch" class="contact-link">linkedin.com/in/zakaria-gallouch</a></div>
-            <div class="contact-item"><span class="contact-icon">🌐</span><a href="https://codepen.io/sahelpub21/full/ByjdErK" class="contact-link">Portfolio</a></div>
+            <div class="contact-item"><span class="contact-icon">🌐</span><a href="https://sahelpub21-debug.github.io/Consultant_packages/" class="contact-link">Portfolio</a></div>
           </div>
 
           <div class="sidebar-section">
@@ -99,17 +128,18 @@
             <div class="pill">Stratégie de marque et de contenus</div>
             <div class="pill">Go-to-market et campagnes 360</div>
             <div class="pill">Coordination équipes et agences</div>
-            <div class="pill">Suivi budgétaire et ROI</div>
-            <div class="pill">Analytics, bilans post-campagne et veille</div>
+            <div class="pill">Suivi budgétaire et performance</div>
+            <div class="pill">Analyses post-campagne et veille</div>
           </div>
 
           <div class="sidebar-section">
-            <div class="sidebar-heading">Outils et MarTech</div>
-            <div class="pill">HubSpot (Marketing et CRM)</div>
-            <div class="pill">Google Analytics et GSC</div>
-            <div class="pill">WordPress et CMS</div>
-            <div class="pill">Canva, Adobe Suite</div>
-            <div class="pill">Plateformes social et email</div>
+            <div class="sidebar-heading">Outils & MarTech</div>
+            <div class="pill">Canva</div>
+            <div class="pill">Hootsuite</div>
+            <div class="pill">Publer</div>
+            <div class="pill">Buffer</div>
+            <div class="pill">Google Analytics & GSC</div>
+            <div class="pill">WordPress & CMS</div>
             <div class="pill">Tableaux de bord KPI</div>
           </div>
 
@@ -125,141 +155,192 @@
         <main class="main-content">
           <section class="summary">
             <p class="summary-text">
-              Responsable Communication et Marketing, dix ans d’expérience en environnements agence, marketplace et groupe international.
-              Spécialiste de la stratégie de marque et des contenus, du go-to-market et des campagnes 360. Coordination d’équipes
-              et d’agences, suivi budgétaire et pilotage de la performance. Connaissance du marché marocain et exposition internationale.
+              Spécialiste Communication et Marketing avec dix années d’expérience en environnements agence, médias et start-up tech,
+              ainsi qu’en mission de conseil pour un fonds d’investissement. J’accorde une attention particulière à la clarté des messages,
+              à la qualité éditoriale et à la mesure des résultats, en privilégiant une approche collaborative et pragmatique.
             </p>
-            <div class="metrics-highlight">
-              <div class="metrics-text">
-                6 ans en agence, 2 ans correspondant médias, 3 ans Head of Communications. 30+ marques et institutions accompagnées.
-              </div>
+            <div class="metrics">
+              <span class="metric-chip">6 ans en agence</span>
+              <span class="metric-chip">2 ans correspondant médias</span>
+              <span class="metric-chip">3 ans Head of Communications (start-up sport-tech)</span>
+              <span class="metric-chip">30+ marques et institutions accompagnées</span>
             </div>
           </section>
 
           <section class="section">
             <h2 class="section-title">Expériences Professionnelles</h2>
 
-            <!-- FREELANCE / GLOVO -->
-            <article class="experience-item">
-              <div class="experience-header">
-                <div class="job-role">Consultant Communication & Brand Content (Freelance)</div>
-                <div class="job-dates">2021 – 2022</div>
-              </div>
-              <div class="company-name">Glovo Maroc</div>
-              <p class="job-description">
-                Pilotage du plan corporate et du brand content pour renforcer la présence locale durant une période sensible.
-                Conception et direction de la série vidéo Humans of Glovo, valorisant les livreurs et leurs parcours.
-              </p>
-              <ul class="achievements">
-                <li>Plan de communication corporate, storytelling RSE et lignes de messages.</li>
-                <li>Série vidéo Humans of Glovo, 5 épisodes, coordination production et post-prod.</li>
-                <li>Près de 20 000 interactions positives sur les contenus de la série.</li>
-              </ul>
-            </article>
-
-            <!-- CORRESPONDANT MEDIAS -->
-            <article class="experience-item">
-              <div class="experience-header">
-                <div class="job-role">Correspondant médias & stratégie éditoriale</div>
-                <div class="job-dates">2020 – 2022</div>
-              </div>
-              <div class="company-name">CIO Mag / ATDA</div>
-              <p class="job-description">
-                Couverture éditoriale panafricaine et production multi-formats pour CIO Mag, avec pilotage de campagnes liées aux Assises de la Transformation Digitale en Afrique (ATDA).
-              </p>
-              <ul class="achievements">
-                <li>Rédaction d’une soixantaine d’articles et interviews de décideurs.</li>
-                <li>Conception et production du documentaire Horizon Digital, activation LinkedIn KOL.</li>
-                <li>Renforcement du positionnement médias et des prises de parole régionales.</li>
-              </ul>
-            </article>
-
-            <!-- FAN4ALL -->
-            <article class="experience-item">
-              <div class="experience-header">
-                <div class="job-role">Head of Communications, marketplace SportTech</div>
-                <div class="job-dates">Fév. 2022 – Fév. 2025</div>
-              </div>
-              <div class="company-name">Fan4All, start-up e-commerce</div>
-              <p class="job-description">
-                Pilotage de la stratégie de marque, des contenus et des relations presse pour soutenir l’acquisition et la conversion.
-              </p>
-              <ul class="achievements">
-                <li>Phase de lancement RP, annonce de partenariats avec des clubs. PR value de 300 000 € pour une start-up en lancement.</li>
-                <li>Programmes éditoriaux orientés expérience utilisateur et crédibilité produit. Gouvernance de contenu adoptée.</li>
-                <li>Campagnes de conversion sur owned, paid et PR. Amélioration de 28 % du taux de conversion.</li>
-                <li>Tableaux de bord mensuels sur trafic, engagement et conversion.</li>
-              </ul>
-            </article>
-
-            <!-- ABL -->
+            <!-- ABL (Mission consulting) -->
             <article class="experience-item">
               <div class="experience-header">
                 <div class="job-role">Content Manager</div>
                 <div class="job-dates">Mars 2025 – Juil. 2025</div>
               </div>
-              <div class="company-name">ABL Corporation, fonds d’investissement. Verticale principale : ABL Aviation</div>
+              <div class="company-line">
+                <div class="logo-ph" aria-hidden="true">Logo</div>
+                <div class="company-name">ABL Corporation</div>
+                <span class="badge">Mission de consulting — Fonds d’investissement (verticale principale : ABL Aviation)</span>
+              </div>
               <p class="job-description">
-                Conception et déploiement du plan marketing éditorial multi-verticales, finance, innovation, aviation et ESG.
-                Stratégie de marque et plan de communication interne pour renforcer l’alignement.
+                Conception et déploiement d’un plan marketing éditorial multi-verticales (finance, innovation, aviation/ESG),
+                structuration d’une stratégie de marque et d’un plan de communication interne pour améliorer l’alignement.
               </p>
               <ul class="achievements">
-                <li>Audits de marque et benchmarks, structuration du message house et des priorités de contenu.</li>
-                <li>Contenus premium, tribunes, rapports et articles pour la crédibilité B2B, aviation et finance.</li>
-                <li>Reporting centralisé, SEO, audits, performance et médias, pour arbitrages exécutifs.</li>
-                <li>Gouvernance éditoriale : briefs, workflows et contrôle qualité.</li>
+                <li>Audits de marque et benchmarks pour bâtir un message house et des priorités contenus clairs.</li>
+                <li>Production de contenus de fond (tribunes, rapports, articles) adaptés à des audiences B2B.</li>
+                <li>Reporting centralisé (SEO, performance, couverture médias) pour arbitrages exécutifs.</li>
               </ul>
+              <div class="placeholders">
+                <div class="image-ph">Visuel rapport</div>
+                <div class="logo-ph">ABL</div>
+                <div class="logo-ph">Aviation</div>
+              </div>
             </article>
 
-            <!-- AGENCE PR -->
+            <!-- Fan4All -->
             <article class="experience-item">
               <div class="experience-header">
-                <div class="job-role">Account Manager et Content Lead</div>
+                <div class="job-role">Head of Communications</div>
+                <div class="job-dates">Fév. 2022 – Fév. 2025</div>
+              </div>
+              <div class="company-line">
+                <div class="logo-ph" aria-hidden="true">Logo</div>
+                <div class="company-name">Fan4All — Plateforme e-commerce SportTech (start-up)</div>
+              </div>
+              <p class="job-description">
+                Pilotage marque, contenus et relations publiques pour soutenir l’acquisition et la conversion dans un modèle marketplace.
+              </p>
+              <ul class="achievements">
+                <li>Phase de lancement RP : annonce de partenariats avec des clubs. PR value de 300 000 € pour une start-up en lancement.</li>
+                <li>Programmes éditoriaux orientés expérience utilisateur et crédibilité produit, gouvernance de contenu adoptée.</li>
+                <li>Campagnes de conversion (owned, paid, RP) et tableaux de bord mensuels trafic/engagement/conversion.</li>
+              </ul>
+              <div class="placeholders">
+                <div class="image-ph">Hero campagne</div>
+                <div class="logo-ph">Club</div>
+                <div class="logo-ph">Partenariat</div>
+              </div>
+            </article>
+
+            <!-- Glovo (Freelance consulting) -->
+            <article class="experience-item">
+              <div class="experience-header">
+                <div class="job-role">Consultant Communication & Brand Content (Freelance)</div>
+                <div class="job-dates">2021 – 2022</div>
+              </div>
+              <div class="company-line">
+                <div class="logo-ph" aria-hidden="true">Logo</div>
+                <div class="company-name">Glovo Maroc</div>
+                <span class="badge">Mission de consulting</span>
+              </div>
+              <p class="job-description">
+                Plan corporate et brand content pour renforcer la présence locale. Conception et direction de la série vidéo
+                « Humans of Glovo », valorisant les parcours des livreurs.
+              </p>
+              <ul class="achievements">
+                <li>Lignes de messages et angles RSE adaptés au contexte local.</li>
+                <li>Coordination de la production et de la post-production (5 épisodes).</li>
+                <li>Près de 20 000 interactions positives sur les contenus de la série.</li>
+              </ul>
+              <div class="placeholders">
+                <div class="image-ph">Miniature vidéo</div>
+                <div class="logo-ph">Glovo</div>
+              </div>
+            </article>
+
+            <!-- CIO Mag / ATDA -->
+            <article class="experience-item">
+              <div class="experience-header">
+                <div class="job-role">Correspondant médias & stratégie éditoriale</div>
+                <div class="job-dates">2020 – 2022</div>
+              </div>
+              <div class="company-line">
+                <div class="logo-ph" aria-hidden="true">Logo</div>
+                <div class="company-name">CIO Mag / ATDA (Assises de la Transformation Digitale en Afrique)</div>
+              </div>
+              <p class="job-description">
+                Couverture éditoriale panafricaine et production multi-formats (articles, interviews, documentaire « Horizon Digital »),
+                en lien avec des campagnes de visibilité autour d’ATDA.
+              </p>
+              <ul class="achievements">
+                <li>Rédaction d’une soixantaine d’articles et d’interviews de dirigeants.</li>
+                <li>Activation LinkedIn autour de contenus vidéo et de tribunes.</li>
+              </ul>
+              <div class="placeholders">
+                <div class="image-ph">ATDA</div>
+                <div class="logo-ph">CIO</div>
+              </div>
+            </article>
+
+            <!-- Strateus / PR Media -->
+            <article class="experience-item">
+              <div class="experience-header">
+                <div class="job-role">Account Manager & Lead Contenu</div>
                 <div class="job-dates">Jan. 2017 – Jan. 2020</div>
               </div>
-              <div class="company-name">Strateus Group / PR Media, agences de relations presse et affaires publiques</div>
+              <div class="company-line">
+                <div class="logo-ph" aria-hidden="true">Logo</div>
+                <div class="company-name">Strateus Group / PR Media — Agences de relations presse & affaires publiques</div>
+              </div>
               <p class="job-description">
-                Gestion de portefeuille et leadership RP et affaires publiques. Messages, dossiers de presse, relations médias, prises de parole,
-                coordination social media et alignement avec les agences partenaires.
+                Gestion de portefeuille et pilotage RP/affaires publiques : messages, dossiers de presse, relations médias,
+                prises de parole, coordination social media et partenaires.
               </p>
               <ul class="achievements">
                 <li>Portefeuille incluant Visa, Dell Technologies, Forever Living Products.</li>
-                <li>Conception de dispositifs RP : conférences, interviews, tribunes et contenus corporate.</li>
-                <li>Mesure et reporting : couverture, part de voix, réputation et plans d’optimisation.</li>
+                <li>Dispositifs RP : conférences, interviews, tribunes et contenu corporate.</li>
+                <li>Mesure : couverture, part de voix, réputation et recommandations d’optimisation.</li>
               </ul>
+              <div class="placeholders">
+                <div class="logo-ph">Visa</div>
+                <div class="logo-ph">Dell</div>
+                <div class="logo-ph">FLP</div>
+              </div>
             </article>
 
-            <!-- COM PAR MAGIE -->
+            <!-- Com’ Par Magie -->
             <article class="experience-item">
               <div class="experience-header">
                 <div class="job-role">Chef de projet communication 360</div>
                 <div class="job-dates">2013 – 2017</div>
               </div>
-              <div class="company-name">Com’ Par Magie, agence de communication</div>
+              <div class="company-line">
+                <div class="logo-ph" aria-hidden="true">Logo</div>
+                <div class="company-name">Com’ Par Magie — Agence de communication</div>
+              </div>
               <p class="job-description">
-                Conception et pilotage de dispositifs 360 corporate et produits. Production de contenus web, social et campagnes. Campaign management et suivi de la performance.
+                Conception et pilotage de dispositifs 360 (corporate, produits), production de contenus web et social,
+                campagne management et suivi de la performance.
               </p>
               <ul class="achievements">
-                <li>Portefeuille principal : LG, CNSS, Majorel Africa, CEED Network.</li>
-                <li>Gestion des canaux owned et campagnes digitales, du brief aux bilans.</li>
-                <li>Optimisations continues basées sur les indicateurs de visibilité, trafic et engagement.</li>
+                <li>Comptes principaux : LG, CNSS, Majorel Africa, CEED Network.</li>
+                <li>Gestion de bout en bout : brief, production, diffusion, bilans.</li>
               </ul>
+              <div class="placeholders">
+                <div class="logo-ph">LG</div>
+                <div class="logo-ph">CNSS</div>
+                <div class="logo-ph">Majorel</div>
+              </div>
             </article>
           </section>
 
           <section class="section">
-            <h2 class="section-title">Formation et Certifications</h2>
+            <h2 class="section-title">Formation & Certifications</h2>
             <div class="education-item">
               <div class="degree-title">Master en communication des organisations</div>
-              <div class="institution">Université de Versailles, ComSup, 2017</div>
+              <div class="institution">Université de Versailles (ComSup) — 2017</div>
             </div>
             <div class="education-item">
               <div class="degree-title">Certification Content Marketing</div>
-              <div class="institution">HubSpot Academy, 2025</div>
+              <div class="institution">HubSpot Academy — 2025</div>
             </div>
             <div class="education-item">
-              <div class="degree-title">Certification HubSpot Marketing Software et CRM</div>
-              <div class="institution">HubSpot Academy, 2025</div>
+              <div class="degree-title">Certification HubSpot Marketing Software & CRM</div>
+              <div class="institution">HubSpot Academy — 2025</div>
+            </div>
+            <div class="education-item">
+              <div class="degree-title">Certification SEO</div>
+              <div class="institution">HubSpot Academy — 2025</div>
             </div>
           </section>
         </main>
@@ -276,7 +357,7 @@
           </div>
           <div class="profile-section">
             <div class="name">ZAKARIA<br>GALLOUCH</div>
-            <div class="job-title">Marketing & Communications Manager</div>
+            <div class="job-title">Communications & Marketing Specialist</div>
           </div>
 
           <div class="sidebar-section">
@@ -285,16 +366,27 @@
             <div class="contact-item"><span class="contact-icon">📱</span><span>+212 627 056 916</span></div>
             <div class="contact-item"><span class="contact-icon">📍</span><span>Casablanca, Morocco</span></div>
             <div class="contact-item"><span class="contact-icon">🔗</span><a href="https://linkedin.com/in/zakaria-gallouch" class="contact-link">linkedin.com/in/zakaria-gallouch</a></div>
-            <div class="contact-item"><span class="contact-icon">🌐</span><a href="https://codepen.io/sahelpub21/full/ByjdErK" class="contact-link">Portfolio</a></div>
+            <div class="contact-item"><span class="contact-icon">🌐</span><a href="https://sahelpub21-debug.github.io/Consultant_packages/" class="contact-link">Portfolio</a></div>
           </div>
 
           <div class="sidebar-section">
-            <div class="sidebar-heading">Core Skills</div>
+            <div class="sidebar-heading">Skills</div>
             <div class="pill">Brand and content strategy</div>
             <div class="pill">Go-to-market and 360 campaigns</div>
             <div class="pill">Team and agency coordination</div>
-            <div class="pill">Budget tracking and ROI</div>
-            <div class="pill">Analytics, post-campaign reviews and intel</div>
+            <div class="pill">Budget and performance tracking</div>
+            <div class="pill">Post-campaign reviews and monitoring</div>
+          </div>
+
+          <div class="sidebar-section">
+            <div class="sidebar-heading">Tools & MarTech</div>
+            <div class="pill">Canva</div>
+            <div class="pill">Hootsuite</div>
+            <div class="pill">Publer</div>
+            <div class="pill">Buffer</div>
+            <div class="pill">Google Analytics & GSC</div>
+            <div class="pill">WordPress & CMS</div>
+            <div class="pill">KPI dashboards</div>
           </div>
 
           <div class="sidebar-section">
@@ -305,148 +397,199 @@
           </div>
         </aside>
 
-          <!-- Main -->
-          <main class="main-content">
-            <section class="summary">
-              <p class="summary-text">
-                Marketing and Communications Manager with ten years of experience across agencies, a marketplace and an international group.
-                Specialised in brand and content strategy, go-to-market and 360 campaigns. Coordination of teams and agencies, budget tracking
-                and performance leadership. Strong knowledge of the Moroccan market and international exposure.
+        <!-- Main -->
+        <main class="main-content">
+          <section class="summary">
+            <p class="summary-text">
+              Communications and Marketing Specialist with ten years across agencies, media and tech start-ups,
+              alongside a consulting mission for an investment fund. I care about clarity, editorial quality and measurable outcomes.
+              My approach is collaborative and pragmatic, focused on well-structured operations and steady delivery.
+            </p>
+            <div class="metrics">
+              <span class="metric-chip">6 years in agencies</span>
+              <span class="metric-chip">2 years as media correspondent</span>
+              <span class="metric-chip">3 years Head of Communications (sport-tech start-up)</span>
+              <span class="metric-chip">30+ brands and institutions supported</span>
+            </div>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title">Professional Experience</h2>
+
+            <!-- ABL (Consulting mission) -->
+            <article class="experience-item">
+              <div class="experience-header">
+                <div class="job-role">Content Manager</div>
+                <div class="job-dates">Mar 2025 – Jul 2025</div>
+              </div>
+              <div class="company-line">
+                <div class="logo-ph" aria-hidden="true">Logo</div>
+                <div class="company-name">ABL Corporation</div>
+                <span class="badge">Consulting mission — Investment fund (main vertical: ABL Aviation)</span>
+              </div>
+              <p class="job-description">
+                Designed and deployed a multi-vertical editorial marketing plan (finance, innovation, aviation/ESG),
+                with a brand strategy and an internal communications plan to improve alignment.
               </p>
-              <div class="metrics-highlight">
-                <div class="metrics-text">
-                  6 years in agencies, 2 years as media correspondent, 3 years as Head of Communications. 30+ brands and institutions supported.
-                </div>
+              <ul class="achievements">
+                <li>Brand audits and benchmarks to structure a clear message house and content priorities.</li>
+                <li>Long-form content (op-eds, reports, articles) tailored to B2B audiences.</li>
+                <li>Centralised reporting (SEO, performance, media coverage) for executive decision-making.</li>
+              </ul>
+              <div class="placeholders">
+                <div class="image-ph">Report visual</div>
+                <div class="logo-ph">ABL</div>
+                <div class="logo-ph">Aviation</div>
               </div>
-            </section>
+            </article>
 
-            <section class="section">
-              <h2 class="section-title">Professional Experience</h2>
+            <!-- Fan4All -->
+            <article class="experience-item">
+              <div class="experience-header">
+                <div class="job-role">Head of Communications</div>
+                <div class="job-dates">Feb 2022 – Feb 2025</div>
+              </div>
+              <div class="company-line">
+                <div class="logo-ph" aria-hidden="true">Logo</div>
+                <div class="company-name">Fan4All — Sport-tech e-commerce platform (start-up)</div>
+              </div>
+              <p class="job-description">
+                Led brand, editorial and public relations to support acquisition and conversion in a marketplace context.
+              </p>
+              <ul class="achievements">
+                <li>Launch public-relations phase: announcement of club partnerships. PR value of €300,000 for a start-up at launch.</li>
+                <li>Editorial programmes focused on user experience and product credibility, with adopted content governance.</li>
+                <li>Conversion campaigns (owned, paid, PR) and monthly dashboards for traffic, engagement and conversion.</li>
+              </ul>
+              <div class="placeholders">
+                <div class="image-ph">Campaign hero</div>
+                <div class="logo-ph">Club</div>
+                <div class="logo-ph">Partnership</div>
+              </div>
+            </article>
 
-              <!-- FREELANCE / GLOVO -->
-              <article class="experience-item">
-                <div class="experience-header">
-                  <div class="job-role">Communications & Brand Content Consultant (Freelance)</div>
-                  <div class="job-dates">2021 – 2022</div>
-                </div>
+            <!-- Glovo (Freelance consulting) -->
+            <article class="experience-item">
+              <div class="experience-header">
+                <div class="job-role">Communications & Brand Content Consultant (Freelance)</div>
+                <div class="job-dates">2021 – 2022</div>
+              </div>
+              <div class="company-line">
+                <div class="logo-ph" aria-hidden="true">Logo</div>
                 <div class="company-name">Glovo Morocco</div>
-                <p class="job-description">
-                  Led corporate plan and brand content to strengthen local presence during a sensitive period.
-                  Conceived and directed the Humans of Glovo video series, highlighting couriers and their stories.
-                </p>
-                <ul class="achievements">
-                  <li>Corporate comms plan, ESG/RSE storytelling and messaging lines.</li>
-                  <li>Humans of Glovo, 5-episode video series, production and post-production coordination.</li>
-                  <li>Nearly 20,000 positive interactions generated by the series’ content.</li>
-                </ul>
-              </article>
-
-              <!-- MEDIA CORRESPONDENT -->
-              <article class="experience-item">
-                <div class="experience-header">
-                  <div class="job-role">Media Correspondent & Editorial Strategy</div>
-                  <div class="job-dates">2020 – 2022</div>
-                </div>
-                <div class="company-name">CIO Mag / ATDA</div>
-                <p class="job-description">
-                  Pan-African editorial coverage and multi-format production for CIO Mag, with campaigns tied to the Africa Digital Transformation Summit (ATDA).
-                </p>
-                <ul class="achievements">
-                  <li>Wrote around sixty articles and executive interviews.</li>
-                  <li>Designed and produced the Horizon Digital documentary, with LinkedIn KOL activation.</li>
-                  <li>Reinforced media positioning and regional thought leadership.</li>
-                </ul>
-              </article>
-
-              <!-- FAN4ALL -->
-              <article class="experience-item">
-                <div class="experience-header">
-                  <div class="job-role">Head of Communications, SportTech marketplace</div>
-                  <div class="job-dates">Feb 2022 – Feb 2025</div>
-                </div>
-                <div class="company-name">Fan4All, e-commerce start-up</div>
-                <p class="job-description">
-                  Led brand, content and public relations to support acquisition and conversion.
-                </p>
-                <ul class="achievements">
-                  <li>Launch PR phase, announcement of club partnerships. PR value of €300,000 for a start-up at launch.</li>
-                  <li>Editorial programmes focused on UX and product credibility. Governance adopted.</li>
-                  <li>Conversion campaigns across owned, paid and PR, with a 28% improvement in conversion rate.</li>
-                  <li>Monthly dashboards tracking traffic, engagement and conversion.</li>
-                </ul>
-              </article>
-
-              <!-- ABL -->
-              <article class="experience-item">
-                <div class="experience-header">
-                  <div class="job-role">Content Manager</div>
-                  <div class="job-dates">Mar 2025 – Jul 2025</div>
-                </div>
-                <div class="company-name">ABL Corporation, investment fund. Main vertical: ABL Aviation</div>
-                <p class="job-description">
-                  Designed and deployed the editorial marketing plan across finance, innovation, aviation and ESG.
-                  Built a brand strategy and an internal communications plan to reinforce alignment.
-                </p>
-                <ul class="achievements">
-                  <li>Brand audits and benchmarks, structuring the message house and content priorities.</li>
-                  <li>Premium content, op-eds, reports and articles to strengthen B2B credibility in aviation and finance.</li>
-                  <li>Centralised reporting, SEO, audits, performance and media, for executive decisions.</li>
-                  <li>Editorial governance with briefs, workflows and quality control.</li>
-                </ul>
-              </article>
-
-              <!-- PR AGENCIES -->
-              <article class="experience-item">
-                <div class="experience-header">
-                  <div class="job-role">Account Manager and Content Lead</div>
-                  <div class="job-dates">Jan 2017 – Jan 2020</div>
-                </div>
-                <div class="company-name">Strateus Group / PR Media, public relations and public affairs agencies</div>
-                <p class="job-description">
-                  Portfolio ownership and PR/public affairs leadership. Messaging, press kits, media relations, speaking opportunities,
-                  social coordination and alignment with partner agencies.
-                </p>
-                <ul class="achievements">
-                  <li>Portfolio included Visa, Dell Technologies, Forever Living Products.</li>
-                  <li>Designed PR programmes: press conferences, interviews, op-eds and corporate content.</li>
-                  <li>Measurement and reporting: coverage, share of voice, reputation and optimisation plans.</li>
-                </ul>
-              </article>
-
-              <!-- COM PAR MAGIE -->
-              <article class="experience-item">
-                <div class="experience-header">
-                  <div class="job-role">360 Communications Project Manager</div>
-                  <div class="job-dates">2013 – 2017</div>
-                </div>
-                <div class="company-name">Com’ Par Magie, communications agency</div>
-                <p class="job-description">
-                  Designed and managed 360 corporate and product programmes. Produced web, social and campaign content. Campaign management and performance tracking.
-                </p>
-                <ul class="achievements">
-                  <li>Main portfolio: LG, CNSS, Majorel Africa, CEED Network.</li>
-                  <li>Owned channels and digital campaigns from brief to post-mortems.</li>
-                  <li>Continuous KPI-based optimisations for visibility, traffic and engagement.</li>
-                </ul>
-              </article>
-            </section>
-
-            <section class="section">
-              <h2 class="section-title">Education and Certifications</h2>
-              <div class="education-item">
-                <div class="degree-title">Master’s in Corporate Communications</div>
-                <div class="institution">University of Versailles, ComSup, 2017</div>
+                <span class="badge">Consulting mission</span>
               </div>
-              <div class="education-item">
-                <div class="degree-title">Content Marketing Certification</div>
-                <div class="institution">HubSpot Academy, 2025</div>
+              <p class="job-description">
+                Corporate plan and brand content to strengthen local presence. Conceived and directed the
+                “Humans of Glovo” video series highlighting couriers’ stories.
+              </p>
+              <ul class="achievements">
+                <li>Messaging lines and ESG-oriented angles adapted to the local context.</li>
+                <li>Production and post-production coordination (five episodes).</li>
+                <li>Nearly 20,000 positive interactions generated by the series.</li>
+              </ul>
+              <div class="placeholders">
+                <div class="image-ph">Video thumbnail</div>
+                <div class="logo-ph">Glovo</div>
               </div>
-              <div class="education-item">
-                <div class="degree-title">HubSpot Marketing Software and CRM Certification</div>
-                <div class="institution">HubSpot Academy, 2025</div>
+            </article>
+
+            <!-- CIO Mag / ATDA -->
+            <article class="experience-item">
+              <div class="experience-header">
+                <div class="job-role">Media Correspondent & Editorial Strategy</div>
+                <div class="job-dates">2020 – 2022</div>
               </div>
-            </section>
-          </main>
+              <div class="company-line">
+                <div class="logo-ph" aria-hidden="true">Logo</div>
+                <div class="company-name">CIO Mag / ATDA (Africa Digital Transformation Summit)</div>
+              </div>
+              <p class="job-description">
+                Pan-African editorial coverage and multi-format production (articles, interviews, “Horizon Digital” documentary),
+                with campaign-driven visibility around ATDA.
+              </p>
+              <ul class="achievements">
+                <li>Approximately sixty articles and executive interviews.</li>
+                <li>LinkedIn activation around video content and op-eds.</li>
+              </ul>
+              <div class="placeholders">
+                <div class="image-ph">ATDA</div>
+                <div class="logo-ph">CIO</div>
+              </div>
+            </article>
+
+            <!-- Strateus / PR Media -->
+            <article class="experience-item">
+              <div class="experience-header">
+                <div class="job-role">Account Manager & Content Lead</div>
+                <div class="job-dates">Jan 2017 – Jan 2020</div>
+              </div>
+              <div class="company-line">
+                <div class="logo-ph" aria-hidden="true">Logo</div>
+                <div class="company-name">Strateus Group / PR Media — Public relations & public affairs agencies</div>
+              </div>
+              <p class="job-description">
+                Portfolio ownership and PR/public-affairs leadership: messaging, press kits, media relations, speaking opportunities,
+                social coordination and partner alignment.
+              </p>
+              <ul class="achievements">
+                <li>Portfolio included Visa, Dell Technologies, and Forever Living Products.</li>
+                <li>PR programmes: press conferences, interviews, op-eds and corporate content.</li>
+                <li>Measurement: coverage, share of voice, reputation and optimisation proposals.</li>
+              </ul>
+              <div class="placeholders">
+                <div class="logo-ph">Visa</div>
+                <div class="logo-ph">Dell</div>
+                <div class="logo-ph">FLP</div>
+              </div>
+            </article>
+
+            <!-- Com’ Par Magie -->
+            <article class="experience-item">
+              <div class="experience-header">
+                <div class="job-role">360 Communications Project Manager</div>
+                <div class="job-dates">2013 – 2017</div>
+              </div>
+              <div class="company-line">
+                <div class="logo-ph" aria-hidden="true">Logo</div>
+                <div class="company-name">Com’ Par Magie — Communications agency</div>
+              </div>
+              <p class="job-description">
+                Designed and managed 360 programmes (corporate, products), produced web and social content,
+                handled campaign management and performance tracking.
+              </p>
+              <ul class="achievements">
+                <li>Main accounts: LG, CNSS, Majorel Africa, CEED Network.</li>
+                <li>End-to-end execution: brief, production, distribution and post-mortems.</li>
+              </ul>
+              <div class="placeholders">
+                <div class="logo-ph">LG</div>
+                <div class="logo-ph">CNSS</div>
+                <div class="logo-ph">Majorel</div>
+              </div>
+            </article>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title">Education & Certifications</h2>
+            <div class="education-item">
+              <div class="degree-title">Master’s in Corporate Communications</div>
+              <div class="institution">University of Versailles (ComSup) — 2017</div>
+            </div>
+            <div class="education-item">
+              <div class="degree-title">Content Marketing Certification</div>
+              <div class="institution">HubSpot Academy — 2025</div>
+            </div>
+            <div class="education-item">
+              <div class="degree-title">HubSpot Marketing Software & CRM Certification</div>
+              <div class="institution">HubSpot Academy — 2025</div>
+            </div>
+            <div class="education-item">
+              <div class="degree-title">SEO Certification</div>
+              <div class="institution">HubSpot Academy — 2025</div>
+            </div>
+          </section>
+        </main>
       </div>
     </div>
 
